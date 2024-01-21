@@ -4,6 +4,7 @@ import MovieCard from "../components/MovieCard";
 import nowPlaying from "../constants/nowPlayingMovies.json";
 import upcomingMovies from "../constants/upcomingMovies.json";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function WelcomePage() {
     const [now, setNow] = useState([]);
@@ -30,24 +31,76 @@ export default function WelcomePage() {
             state: { data: [username, genre, year] },
         });
     };
+    const getMovies = async () => {
+        const optionsUp = {
+            method: "GET",
+            url: "https://movies-tv-shows-database.p.rapidapi.com/",
+            params: { page: "3" },
+            headers: {
+                Type: "get-upcoming-movies",
+                "X-RapidAPI-Key":
+                    "e60d81a09emsh298c2129fcfed33p17cca3jsn3969ee95a884",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
+            },
+        };
+        const optionsNow = {
+            method: "GET",
+            url: "https://movies-tv-shows-database.p.rapidapi.com/",
+            params: { page: "4" },
+            headers: {
+                Type: "get-nowplaying-movies",
+                "X-RapidAPI-Key":
+                    "e60d81a09emsh298c2129fcfed33p17cca3jsn3969ee95a884",
+                "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
+            },
+        };
+
+        try {
+            const responseUp = await axios.request(optionsUp);
+            const responseNow = await axios.request({
+                method: "GET",
+                url: "https://movies-tv-shows-database.p.rapidapi.com/",
+                params: {
+                    year: "2023",
+                    page: "1",
+                },
+                headers: {
+                    Type: "get-popular-movies",
+                    "X-RapidAPI-Key":
+                        "e60d81a09emsh298c2129fcfed33p17cca3jsn3969ee95a884",
+                    "X-RapidAPI-Host":
+                        "movies-tv-shows-database.p.rapidapi.com",
+                },
+            });
+            // console.log(responseUp.data.movie_results);
+            // console.log(responseNow.data.movie_results);
+            Object.entries(responseNow.data.movie_results).forEach(
+                (element1, id) => {
+                    if (id <= 3) {
+                        setNow((prev) => [...prev, element1]);
+                    }
+                }
+            );
+            Object.entries(responseUp.data.movie_results).forEach(
+                (element2, id) => {
+                    if (id <= 3) {
+                        setUp((prev) => [...prev, element2]);
+                    }
+                }
+            );
+        } catch (error) {
+            console.error(error);
+        }
+    };
     useEffect(() => {
-        Object.entries(nowPlaying.movie_results).forEach((element, id) => {
-            if (id <= 3) {
-                setNow((prev) => [...prev, element]);
-            }
-        });
-        Object.entries(upcomingMovies.movie_results).forEach((element, id) => {
-            if (id <= 3) {
-                setUp((prev) => [...prev, element]);
-            }
-        });
+        return () => getMovies();
     }, []);
     return (
         <div className="bg-black text-white">
             <NavBar />
             <div className=" w-[94%] m-auto">
                 <h1 className="bg-clip-text py-4 mb-5 text-transparent w-fit text-5xl bg-gradient-to-r from-[#06D6A0] to-[#FFD166]">
-                    Now Playing
+                    Popular Movies
                 </h1>
                 <div className="pb-4 flex justify-evenly flex-wrap">
                     {now.map((element, id) => (
