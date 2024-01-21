@@ -1,0 +1,108 @@
+{
+    "movie_results": [
+        {
+            "title": "Mothers' Instinct",
+            "year": "2024",
+            "imdb_id": "tt13397574"
+        },
+        {
+            "title": "The Inventor",
+            "year": "2024",
+            "imdb_id": "tt5822848"
+        },
+        {
+            "title": "Amelia's Children",
+            "year": "2024",
+            "imdb_id": "tt26594993"
+        },
+        {
+            "title": "Fighter",
+            "year": "2024",
+            "imdb_id": "tt13818368"
+        },
+        {
+            "title": "The Dreamer",
+            "year": "2024",
+            "imdb_id": "tt19876958"
+        },
+        {
+            "title": "Realm of Satan",
+            "year": "2024",
+            "imdb_id": "tt12309944"
+        },
+        {
+            "title": "Luther: Never Too Much",
+            "year": "2024",
+            "imdb_id": "tt10850320"
+        },
+        {
+            "title": "And So It Begins",
+            "year": "2024",
+            "imdb_id": "tt30320931"
+        },
+        {
+            "title": "Sue Bird: In the Clutch",
+            "year": "2024",
+            "imdb_id": "tt17042382"
+        },
+        {
+            "title": "Beautiful Wedding",
+            "year": "2024",
+            "imdb_id": "tt26546123"
+        },
+        {
+            "title": "DEVO",
+            "year": "2024",
+            "imdb_id": "tt27210519"
+        },
+        {
+            "title": "Party of Fools",
+            "year": "2024",
+            "imdb_id": "tt13482796"
+        },
+        {
+            "title": "Soundtrack to a Coup d'État",
+            "year": "2024",
+            "imdb_id": "tt14452174"
+        },
+        {
+            "title": "A Good Jewish Boy",
+            "year": "2024",
+            "imdb_id": "tt16160544"
+        },
+        {
+            "title": "Black Box Diaries",
+            "year": "2024",
+            "imdb_id": "tt30227076"
+        },
+        {
+            "title": "Saving Art",
+            "year": "2024",
+            "imdb_id": "tt5483948"
+        },
+        {
+            "title": "Skywalkers: A Love Story",
+            "year": "2024",
+            "imdb_id": "tt30319830"
+        },
+        {
+            "title": "Un coup de dés",
+            "year": "2024",
+            "imdb_id": "tt25752340"
+        },
+        {
+            "title": "Union",
+            "year": "2024",
+            "imdb_id": "tt30319916"
+        },
+        {
+            "title": "Ms. Apocalypse",
+            "year": "2024",
+            "imdb_id": "tt26422301"
+        }
+    ],
+    "results": 20,
+    "Total_results": "1304",
+    "status": "OK",
+    "status_message": "Query was successful"
+}

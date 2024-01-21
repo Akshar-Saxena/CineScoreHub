@@ -1,0 +1,108 @@
+{
+    "movie_results": [
+        {
+            "title": "Gepack",
+            "year": "2024",
+            "imdb_id": "tt30292489"
+        },
+        {
+            "title": "Bisons",
+            "year": "2024",
+            "imdb_id": "tt21422618"
+        },
+        {
+            "title": "Hundreds of Beavers",
+            "year": "2024",
+            "imdb_id": "tt12818328"
+        },
+        {
+            "title": "Framed",
+            "year": "2024",
+            "imdb_id": "tt27219557"
+        },
+        {
+            "title": "Trust",
+            "year": "2024",
+            "imdb_id": "tt16227830"
+        },
+        {
+            "title": "Junction",
+            "year": "2024",
+            "imdb_id": "tt9046896"
+        },
+        {
+            "title": "Timir",
+            "year": "2024",
+            "imdb_id": "tt30018556"
+        },
+        {
+            "title": "Last Flamingo of the Red Summer Sunset",
+            "year": "2024",
+            "imdb_id": "tt17037988"
+        },
+        {
+            "title": "Numéro 10",
+            "year": "2024",
+            "imdb_id": "tt30477968"
+        },
+        {
+            "title": "Upgraded",
+            "year": "2024",
+            "imdb_id": "tt21830902"
+        },
+        {
+            "title": "Sunrise",
+            "year": "2024",
+            "imdb_id": "tt29924310"
+        },
+        {
+            "title": "Igualada",
+            "year": "2024",
+            "imdb_id": "tt30320521"
+        },
+        {
+            "title": "Håkan Bråkan 2",
+            "year": "2024",
+            "imdb_id": "tt26547948"
+        },
+        {
+            "title": "Heresy",
+            "year": "2024",
+            "imdb_id": "tt27524853"
+        },
+        {
+            "title": "Blue Star",
+            "year": "2024",
+            "imdb_id": "tt15440460"
+        },
+        {
+            "title": "Plastic Fantastic",
+            "year": "2024",
+            "imdb_id": "tt27664399"
+        },
+        {
+            "title": "Nocturnes",
+            "year": "2024",
+            "imdb_id": "tt30320605"
+        },
+        {
+            "title": "Venus",
+            "year": "2024",
+            "imdb_id": "tt30833639"
+        },
+        {
+            "title": "CREATE OR DIE",
+            "year": "2024",
+            "imdb_id": "tt28689410"
+        },
+        {
+            "title": "Lampir",
+            "year": "2024",
+            "imdb_id": "tt28623567"
+        }
+    ],
+    "results": 20,
+    "Total_results": "270",
+    "status": "OK",
+    "status_message": "Query was successful"
+}
