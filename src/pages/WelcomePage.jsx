@@ -27,9 +27,13 @@ export default function WelcomePage() {
         setYear(e.target.value);
     };
     const getSuggestion = () => {
-        navigate("/suggestion", {
-            state: { data: [username, genre, year] },
-        });
+        if (year == "" || username == "" || genre == "") {
+            alert("Fill Each Field");
+        } else {
+            navigate("/suggestion", {
+                state: { data: [username, genre, year] },
+            });
+        }
     };
     const getMovies = async () => {
         const optionsUp = {
