@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar(props) {
     const navigate = useNavigate();
     const [query, setQuery] = useState("");
     const queryHandler = (e) => {
@@ -15,23 +15,29 @@ export default function NavBar() {
                 alt=""
                 onClick={() => navigate("/")}
             />
-            <div className="flex justify-center items-center">
-                <input
-                    type="text"
-                    className="py-2 px-4 h-[50px] bg-clip-text text-transparent cursor-text bg-gradient-to-r from-[#06D6A0] to-[#FFD166] border-b border-gray-100 focus:outline-none"
-                    placeholder="Search"
-                    onChange={queryHandler}
-                    value={query}
-                />
-                <img
-                    className="w-[20px] ml-4 h-[20px] cursor-pointer"
-                    src="./search.png"
-                    alt=""
-                    onClick={() =>
-                        navigate("/search", { state: { query: query } })
-                    }
-                />
-            </div>
+            {props.token != false ? (
+                <div className="flex justify-center items-center">
+                    <input
+                        type="text"
+                        className="py-2 px-4 h-[50px] bg-clip-text text-transparent cursor-text bg-gradient-to-r from-[#06D6A0] to-[#FFD166] border-b border-gray-100 focus:outline-none"
+                        placeholder="Search"
+                        onChange={queryHandler}
+                        value={query}
+                    />
+                    <img
+                        className="w-[20px] ml-4 h-[20px] cursor-pointer"
+                        src="./search.png"
+                        alt=""
+                        onClick={() =>
+                            navigate("/search", { state: { query: query } })
+                        }
+                    />
+                </div>
+            ) : null}
         </div>
     );
 }
+
+NavBar.defaultProps = {
+    token: true,
+};

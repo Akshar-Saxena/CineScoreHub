@@ -40,7 +40,7 @@ export default function MoviesPage() {
     }, []);
     return (
         <div className="bg-black min-h-screen max-h-fit w-full">
-            <NavBar />
+            <NavBar token={false} />
             <div className=" w-[94%] m-auto">
                 <h1 className="bg-clip-text py-4 mb-5 text-transparent w-fit text-5xl bg-gradient-to-r from-[#06D6A0] to-[#FFD166]">
                     Search Results for {location.state.query}
