@@ -90,7 +90,7 @@ export default function WelcomePage() {
         }
     };
     useEffect(() => {
-        return () => getMovies();
+        getMovies();
     }, []);
     return (
         <div className="bg-black text-white">

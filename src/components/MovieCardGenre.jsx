@@ -23,7 +23,7 @@ export default function MovieCardGenre(props) {
         }
     };
     useEffect(() => {
-        return () => getImage();
+        getImage();
     }, []);
     return (
         <div

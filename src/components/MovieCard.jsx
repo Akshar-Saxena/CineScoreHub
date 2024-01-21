@@ -23,7 +23,7 @@ export default function MovieCard(props) {
         }
     };
     useEffect(() => {
-        return () => getImage();
+        getImage();
     }, []);
     return (
         <div

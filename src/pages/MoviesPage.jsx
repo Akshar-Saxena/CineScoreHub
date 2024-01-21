@@ -36,7 +36,7 @@ export default function MoviesPage() {
         }
     };
     useEffect(() => {
-        return () => getMovies();
+        getMovies();
     }, []);
     return (
         <div className="bg-black min-h-screen max-h-fit w-full">
