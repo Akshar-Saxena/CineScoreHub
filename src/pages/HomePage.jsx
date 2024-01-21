@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { IonInput, IonItem, IonList } from "@ionic/react";
 
 export default function HomePage() {
     const [width, setWidth] = useState(window.innerWidth);
