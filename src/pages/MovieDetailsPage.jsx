@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import axios from "axios";
+import { RingLoader } from "react-spinners";
 
 export default function MovieDetailsPage() {
     const location = useLocation();
@@ -27,17 +28,23 @@ export default function MovieDetailsPage() {
 
         try {
             const response = await axios.request(options);
-            console.log(response.data);
+            // console.log(response.data);
             setResp(response.data);
             const res = await axios.get(
                 `https://www.omdbapi.com/?i=${location.state.token}&apikey=893d135d`
             );
-            console.log(res.data.Poster);
-            setSrc(encodeURI(res.data.Poster));
-
+            // console.log(res.data.Poster);
+            if (res.data.Poster == "N/A") {
+                // console.log("No Image");
+                setSrc(
+                    "https://www.rockettstgeorge.co.uk/cdn/shop/products/no_selection_46a68bcd-4f07-453a-bd6f-b50da3d486d0.jpg?v=1683702587"
+                );
+            } else {
+                setSrc(encodeURI(res.data.Poster));
+            }
             setReady(true);
         } catch (error) {
-            console.error(error);
+            // console.error(error);
         }
     };
 
@@ -49,7 +56,7 @@ export default function MovieDetailsPage() {
     const giveGenre = (l) => {
         let st = "";
         l.forEach((element, id) => {
-            console.log(element, id);
+            // console.log(element, id);
             if (id != l.length - 1) {
                 st += element + ",";
             } else {
@@ -90,7 +97,7 @@ export default function MovieDetailsPage() {
                                     src={src}
                                     alt="No Image"
                                 />
-                                <div className="text-white w-[50%]">
+                                <div className="text-white max-[450px]:w-[80%] w-[50%]">
                                     <h1 className="text-4xl text-[#FFD166]">
                                         Movie Name :{" "}
                                         <span className="text-white">
@@ -136,7 +143,9 @@ export default function MovieDetailsPage() {
                                     <h2 className="text-[#FFD166]">
                                         Genre:{" "}
                                         <span className="text-white">
-                                            {giveGenre(resp.genres)}
+                                            {resp.genres != null
+                                                ? giveGenre(resp.genres)
+                                                : "-"}
                                         </span>
                                     </h2>
                                     <h2 className="text-[#EF476F]">
@@ -150,7 +159,9 @@ export default function MovieDetailsPage() {
                                     <h2 className="text-[#06D6A0]">
                                         Directed by:{" "}
                                         <span className="text-white">
-                                            {giveGenre(resp.directors)}
+                                            {resp.genres != null
+                                                ? giveGenre(resp.directors)
+                                                : "-"}
                                         </span>
                                     </h2>
                                 </div>
@@ -160,15 +171,21 @@ export default function MovieDetailsPage() {
                                     Stars
                                 </h1>
                                 <ol className="list-decimal ml-10 mt-6">
-                                    {resp.stars.map((star, id) => (
-                                        <li key={id}>{star}</li>
-                                    ))}
+                                    {resp.stars != null ? (
+                                        resp.stars.map((star, id) => (
+                                            <li key={id}>{star}</li>
+                                        ))
+                                    ) : (
+                                        <li> Star Details Not Available</li>
+                                    )}
                                 </ol>
                             </div>
                         </div>
                     </div>
                 ) : (
-                    <div>Loading</div>
+                    <div className="w-full h-screen flex justify-center items-center">
+                        <RingLoader color="black" loading={true} size={200} />
+                    </div>
                 )
             ) : (
                 <div className="w-full h-screen flex justify-center items-center">

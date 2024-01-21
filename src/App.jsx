@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import WelcomePage from "./pages/WelcomePage";
 import "../src/App.css";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
+import SuggestionPage from "./pages/SuggestionPage";
+import MoviesPage from "./pages/MoviesPage";
 
 export default function App() {
     return (
@@ -12,6 +14,8 @@ export default function App() {
                 <Route exact path="/" element={<HomePage />} />
                 <Route exact path="/welcome" element={<WelcomePage />} />
                 <Route exact path="/details" element={<MovieDetailsPage />} />
+                <Route exact path="/suggestion" element={<SuggestionPage />} />
+                <Route exact path="/search" element={<MoviesPage />} />
             </Routes>
         </Router>
     );

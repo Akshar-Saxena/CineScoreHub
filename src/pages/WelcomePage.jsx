@@ -3,10 +3,33 @@ import NavBar from "../components/NavBar";
 import MovieCard from "../components/MovieCard";
 import nowPlaying from "../constants/nowPlayingMovies.json";
 import upcomingMovies from "../constants/upcomingMovies.json";
+import { useNavigate } from "react-router-dom";
 
 export default function WelcomePage() {
     const [now, setNow] = useState([]);
+    const navigate = useNavigate();
     const [up, setUp] = useState([]);
+    const [genre, setGenre] = useState("");
+    const [year, setYear] = useState("");
+    const [username, setUsername] = useState("");
+    const years = [
+        2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013,
+        2012, 2011, 2010,
+    ];
+    const genreHandler = (e) => {
+        setGenre(e.target.value);
+    };
+    const nameHandler = (e) => {
+        setUsername(e.target.value);
+    };
+    const yearHandler = (e) => {
+        setYear(e.target.value);
+    };
+    const getSuggestion = () => {
+        navigate("/suggestion", {
+            state: { data: [username, genre, year] },
+        });
+    };
     useEffect(() => {
         Object.entries(nowPlaying.movie_results).forEach((element, id) => {
             if (id <= 3) {
@@ -54,7 +77,7 @@ export default function WelcomePage() {
                 <h1 className="bg-clip-text py-4 mb-5 text-transparent w-fit text-5xl bg-gradient-to-r from-[#EF476F] to-[#06D6A0]">
                     Get Movie Suggestion
                 </h1>
-                <div className="w-[350px] flex flex-col justify-center items-center p-5 outline outline-1 outline-white rounded-lg m-auto">
+                <div className="w-[350px] max-[400px]:w-[280px] flex flex-col justify-center items-center p-5 outline outline-1 outline-white rounded-lg m-auto">
                     <div className="flex flex-col relative  my-4">
                         <label
                             htmlFor="name"
@@ -64,8 +87,10 @@ export default function WelcomePage() {
                         </label>
                         <input
                             name="name"
-                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
+                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] max-[400px]:w-[250px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
                             type="text"
+                            onChange={nameHandler}
+                            value={username}
                         />
                     </div>
                     <div className="flex flex-col relative  my-4">
@@ -77,7 +102,9 @@ export default function WelcomePage() {
                         </label>
                         <select
                             name="genre"
-                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
+                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] max-[400px]:w-[250px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
+                            value={genre}
+                            onChange={genreHandler}
                         >
                             <option></option>
                             <option value="Action">Action</option>
@@ -99,18 +126,22 @@ export default function WelcomePage() {
                         </label>
                         <select
                             name="year"
-                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
+                            className="pt-6 cursor-pointer pb-2 px-8 w-[300px] max-[400px]:w-[250px] text-black focus:outline-none focus:shadow-md focus:shadow-blue-500"
+                            value={year}
+                            onChange={yearHandler}
                         >
                             <option></option>
-                            <option value="0">2023-2020</option>
-                            <option value="1">2019-2015</option>
-                            <option value="2">2014-2010</option>
-                            <option value="3">2009-2005</option>
-                            <option value="4">2004-2000</option>
-                            <option value="5">1999-1990</option>
+                            {years.map((element, id) => (
+                                <option key={id} value={element}>
+                                    {element}
+                                </option>
+                            ))}
                         </select>
                     </div>
-                    <button className="px-4 my-4 py-2 rounded-lg bg-gradient-to-b from-red-600 to-yellow-500">
+                    <button
+                        onClick={getSuggestion}
+                        className="px-4 my-4 py-2 rounded-lg bg-gradient-to-b from-red-600 to-yellow-500"
+                    >
                         Get Movies
                     </button>
                 </div>
