@@ -17,8 +17,7 @@ export default function SuggestionPage() {
             },
             headers: {
                 Type: "get-movies-byyear",
-                "X-RapidAPI-Key":
-                    "e60d81a09emsh298c2129fcfed33p17cca3jsn3969ee95a884",
+                "X-RapidAPI-Key": import.meta.env.VITE_KEY_1,
                 "X-RapidAPI-Host": "movies-tv-shows-database.p.rapidapi.com",
             },
         };
