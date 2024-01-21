@@ -36,7 +36,7 @@ export default function SuggestionPage() {
     };
     useEffect(() => {
         // console.log(location.state.data);
-        return () => getMovies();
+        getMovies();
     }, []);
     return (
         <div className="bg-black">
